@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Github, ExternalLink, Package, BookOpen, ShoppingCart, LucideIcon, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ArrowUpRight, Github, ExternalLink, Package, BookOpen, ShoppingCart, LucideIcon, ChevronLeft, ChevronRight, X, Shrink } from 'lucide-react';
 import { Button } from './ui/button';
 import {
   Dialog,
@@ -71,27 +71,36 @@ const projects: Project[] = [
     icon: Package,
   },
   {
-    title: 'Modern E-commerce Platform',
-    description: 'Full-featured e-commerce solution with product management, cart functionality, and payment integration.',
-    longDescription: `A complete e-commerce solution built with modern technologies and best practices. Features include:
-
-• Product catalog with categories and filters
-• Shopping cart and wishlist functionality
-• Secure payment processing with Stripe
-• Order management and tracking
-• Admin dashboard for inventory management
-• Analytics and sales reporting
-• Responsive design and optimized performance`,
-    image: '/images/ecommerce.jpg',
+    title: 'Cine Prompt Generator',
+    description: 'A cinematic prompt builder for AI video tools — built for product lovers, creators.',
+    longDescription: `Create cinematic AI video prompts for your products instantly.
+Add product details, choose style & mood — get ready-to-use prompts for RunwayML, Pika, or Sora.
+🔍 Key Highlights:
+🎯 Product name, features & slogan input
+🎨 Visual & music style selection
+⚡ Instant prompt preview & copy
+🧱 Built with Next.js, TailwindCSS, ShadCN
+🎥 Perfect for ads, demos, and reels`,
+    image: '/images/Cine1.png',
     screenshots: [
-      '/images/ecommerce-1.jpg',
-      '/images/ecommerce-2.jpg',
-      '/images/ecommerce-3.jpg',
+      '/images/Cine1.png',
+      '/images/Cine2.png',
+      '/images/Cine3.png',
     ],
-    tags: ['Next.js', 'Stripe', 'Tailwind CSS', 'Supabase', 'TypeScript', 'Redux'],
-    demoUrl: '#',
-    githubUrl: '#',
-    icon: ShoppingCart,
+    tags: [
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'ShadCN/UI',
+      'Framer Motion',
+      'Prompt Engineering',
+      'AI Tools',
+      'RunwayML',
+      'Pika Labs',  
+    ],
+    demoUrl: 'https://cine-prompt-generator.vercel.app',
+    githubUrl: 'https://github.com/helloChirag28/CinePromptGenerator',
+    icon: Shrink,
   },
   {
     title: 'Modern E-commerce Platform',
