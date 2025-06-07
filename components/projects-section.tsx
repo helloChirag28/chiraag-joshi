@@ -54,26 +54,21 @@ const projects: Project[] = [
     icon: Package,
   },
   {
-    title: 'BookShelf - Digital Library',
-    description: 'A digital book catalog system with search, categorization, and reading progress tracking features.',
-    longDescription: `A modern digital library management system that helps users organize and track their reading journey. Key features include:
-
-• Advanced search with filters and categories
-• Reading progress tracking with statistics
-• Book recommendations based on reading history
-• Social features for sharing reviews and recommendations
-• Mobile-responsive design
-• Offline support with PWA`,
-    image: '/images/bookshelf.jpg',
+    title: 'StrideX – Redefining Indian Streetwear',
+    description: 'Inspired by Nike x Adidas, designed for cool, fast, and fearless branding.',
+    longDescription: `This premium landing page showcases StrideX's urban fashion identity through rich animations, video campaigns, and bold typography.
+     Built with Next.js 14 and Framer Motion, the site delivers an
+     immersive brand experience with product highlights, hype-building sections, and interactive visuals — designed to captivate fashion-forward users.`,
+    image: '/images/Stridex1.png',
     screenshots: [
-      '/images/bookshelf-1.jpg',
-      '/images/bookshelf-2.jpg',
-      '/images/bookshelf-3.jpg',
+      '/images/Stridex2.png',
+      '/images/Stridex3.png',
+      '/images/Stridex4.png',
     ],
-    tags: ['React', 'Node.js', 'MongoDB', 'Express', 'Redux', 'JWT'],
-    demoUrl: '#',
-    githubUrl: '#',
-    icon: BookOpen,
+  tags: ['Next.js', 'TypeScript', 'TailwindCSS', 'Framer Motion', 'ShadCN/UI', 'GSAP', 'Vercel', 'Bebas Neue', 'Modern UI'],
+    demoUrl: 'https://strid-ex.vercel.app/',
+    githubUrl: 'https://github.com/helloChirag28/stridEx',
+    icon: Package,
   },
   {
     title: 'Modern E-commerce Platform',
