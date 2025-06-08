@@ -104,7 +104,7 @@ const HeroSection = () => {
             >
               <Twitter className="h-5 w-5" />
             </Button>
-            <Button 
+            {/* <Button 
               variant="secondary" 
               size="sm" 
               className="gap-2"
@@ -115,7 +115,7 @@ const HeroSection = () => {
             >
               <Download className="h-4 w-4" />
               Download Resume
-            </Button>
+            </Button> */}
           </div>
         </motion.div>
         

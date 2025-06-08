@@ -1,9 +1,29 @@
 "use client";
 
-import { useRef, useEffect, useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Github, ExternalLink, Package, BookOpen, ShoppingCart, LucideIcon, ChevronLeft, ChevronRight, X, Shrink, Shuffle } from 'lucide-react';
-import { Button } from './ui/button';
+import { useRef, useEffect, useState } from "react";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
+import {
+  ArrowUpRight,
+  Github,
+  ExternalLink,
+  Package,
+  BookOpen,
+  ShoppingCart,
+  LucideIcon,
+  ChevronLeft,
+  ChevronRight,
+  X,
+  Shrink,
+  Shuffle,
+  BedSingle,
+} from "lucide-react";
+import { Button } from "./ui/button";
 import {
   Dialog,
   DialogContent,
@@ -11,15 +31,15 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from './ui/dialog';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Plane, useTexture } from '@react-three/drei';
-import * as THREE from 'three';
-import Image from 'next/image';
-import { Inter } from 'next/font/google'
-import { useTheme } from 'next-themes';
+} from "./ui/dialog";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Plane, useTexture } from "@react-three/drei";
+import * as THREE from "three";
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import { useTheme } from "next-themes";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 interface Project {
   title: string;
@@ -35,44 +55,57 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'AI Persona',
-    description: 'A modern analytics dashboard with real-time data visualization, user management, and subscription handling.',
+    title: "AI Persona",
+    description:
+      "A modern analytics dashboard with real-time data visualization, user management, and subscription handling.",
     longDescription: `A sleek, animated AI web app where users build digital personas by selecting moods, professions, and interests — and AI generates a visual + textual 
     representation of that persona. Think of it as a blend of an interactive toy, design showcase, and smart AI
     🧠 AI Features
     1. OpenAI (GPT-4) generates personality bio, strengths, career path.
     2. Local memory — shows previous generated personas in a card grid.`,
-    image: '/images/AIPersona1.png',
+    image: "/images/AIPersona1.png",
     screenshots: [
-      '/images/AIPersona1.png',
-      '/images/AIPersona2.png',
-      '/images/AIPersona3.png',
+      "/images/AIPersona1.png",
+      "/images/AIPersona2.png",
+      "/images/AIPersona3.png",
     ],
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'OpenAI', 'Framer Motion'],
-    demoUrl: 'https://ai-persona-delta.vercel.app',
-    githubUrl: 'https://github.com/helloChirag28/AIPersona',
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "OpenAI", "Framer Motion"],
+    demoUrl: "https://ai-persona-delta.vercel.app",
+    githubUrl: "https://github.com/helloChirag28/AIPersona",
     icon: Package,
   },
   {
-    title: 'StrideX – Redefining Indian Streetwear',
-    description: 'Inspired by Nike x Adidas, designed for cool, fast, and fearless branding.',
+    title: "StrideX – Redefining Indian Streetwear",
+    description:
+      "Inspired by Nike x Adidas, designed for cool, fast, and fearless branding.",
     longDescription: `This premium landing page showcases StrideX's urban fashion identity through rich animations, video campaigns, and bold typography.
      Built with Next.js 14 and Framer Motion, the site delivers an
      immersive brand experience with product highlights, hype-building sections, and interactive visuals — designed to captivate fashion-forward users.`,
-    image: '/images/Stridex1.png',
+    image: "/images/Stridex1.png",
     screenshots: [
-      '/images/Stridex2.png',
-      '/images/Stridex3.png',
-      '/images/Stridex4.png',
+      "/images/Stridex2.png",
+      "/images/Stridex3.png",
+      "/images/Stridex4.png",
     ],
-  tags: ['Next.js', 'TypeScript', 'TailwindCSS', 'Framer Motion', 'ShadCN/UI', 'GSAP', 'Vercel', 'Bebas Neue', 'Modern UI'],
-    demoUrl: 'https://strid-ex.vercel.app/',
-    githubUrl: 'https://github.com/helloChirag28/stridEx',
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "Framer Motion",
+      "ShadCN/UI",
+      "GSAP",
+      "Vercel",
+      "Bebas Neue",
+      "Modern UI",
+    ],
+    demoUrl: "https://strid-ex.vercel.app/",
+    githubUrl: "https://github.com/helloChirag28/stridEx",
     icon: Package,
   },
   {
-    title: 'Cine Prompt Generator',
-    description: 'A cinematic prompt builder for AI video tools — built for product lovers, creators.',
+    title: "Cine Prompt Generator",
+    description:
+      "A cinematic prompt builder for AI video tools — built for product lovers, creators.",
     longDescription: `Create cinematic AI video prompts for your products instantly.
 Add product details, choose style & mood — get ready-to-use prompts for RunwayML, Pika, or Sora.
 🔍 Key Highlights:
@@ -81,83 +114,136 @@ Add product details, choose style & mood — get ready-to-use prompts for Runway
 ⚡ Instant prompt preview & copy
 🧱 Built with Next.js, TailwindCSS, ShadCN
 🎥 Perfect for ads, demos, and reels`,
-    image: '/images/Cine1.png',
+    image: "/images/Cine1.png",
     screenshots: [
-      '/images/Cine1.png',
-      '/images/Cine2.png',
-      '/images/Cine3.png',
+      "/images/Cine1.png",
+      "/images/Cine2.png",
+      "/images/Cine3.png",
     ],
     tags: [
-      'Next.js',
-      'TypeScript',
-      'Tailwind CSS',
-      'ShadCN/UI',
-      'Framer Motion',
-      'Prompt Engineering',
-      'AI Tools',
-      'RunwayML',
-      'Pika Labs',  
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "ShadCN/UI",
+      "Framer Motion",
+      "Prompt Engineering",
+      "AI Tools",
+      "RunwayML",
+      "Pika Labs",
     ],
-    demoUrl: 'https://cine-prompt-generator.vercel.app',
-    githubUrl: 'https://github.com/helloChirag28/CinePromptGenerator',
+    demoUrl: "https://cine-prompt-generator.vercel.app",
+    githubUrl: "https://github.com/helloChirag28/CinePromptGenerator",
     icon: Shrink,
   },
   {
-    title: 'FormForge AI Form Builder',
-    description: 'Build a smart, minimal, and highly usable AI Form Builder web application named "FormForge',
+    title: "FormForge AI Form Builder",
+    description:
+      'Build a smart, minimal, and highly usable AI Form Builder web application named "FormForge',
     longDescription: `The core idea is that users just write a single-line prompt like: “Create a job application form”, and the system uses the OpenAI GPT API to auto-generate a full form:
 
 with labeled fields, input types, validation rules, and sections if needed.
 
 Users can preview the form, edit it manually, and export the final result as JSON or copy the HTML code.`,
-    image: '/images/FromFrog1.png',
+    image: "/images/FromFrog1.png",
     screenshots: [
-      '/images/FromFrog1.png',
-      '/images/FormFrog2.png',
-      '/images/FormFrog3.png',
+      "/images/FromFrog1.png",
+      "/images/FormFrog2.png",
+      "/images/FormFrog3.png",
     ],
-    tags: ['Next.js', 'Tailwind CSS', 'Ollama', 'ShadCN/UI', 'Framer Motion', 'Prompt Engineering', 'AI Tools'],
-    demoUrl: 'https://form-forge-six.vercel.app/',
-    githubUrl: 'https://github.com/helloChirag28/FormForge',
+    tags: [
+      "Next.js",
+      "Tailwind CSS",
+      "Ollama",
+      "ShadCN/UI",
+      "Framer Motion",
+      "Prompt Engineering",
+      "AI Tools",
+    ],
+    demoUrl: "https://form-forge-six.vercel.app/",
+    githubUrl: "https://github.com/helloChirag28/FormForge",
     icon: Shuffle,
   },
   {
-    title: 'Smart Invoice Generator — “InvoicelyAI”',
-    description: 'Build a modern, clean, and mobile-friendly Invoice Generator Web App called “InvoicelyAI',
+    title: "Smart Invoice Generator — InvoicelyAI",
+    description:
+      "Build a modern, clean, and mobile-friendly Invoice Generator Web App called “InvoicelyAI",
     longDescription: `The user can fill out a form with invoice details (client name, items, amounts, taxes, etc.), and on submit, the app will instantly generate a professional invoice PDF that can be downloaded or shared via link/email.
 
 This is perfect for freelancers, small businesses, and agencies to generate and send branded invoices in a few clicks.`,
-    image: '/images/Invoice2.png',
-    screenshots: [
-      '/images/Invocie1.png',
-      '/images/Invoice2.png'
+    image: "/images/Invoice2.png",
+    screenshots: ["/images/Invocie1.png", "/images/Invoice2.png"],
+    tags: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Invoice Generator",
+      "PDF Export",
+      "React Hook Form",
+      "ShadCN UI",
+      "Freelancing Tool",
+      "SaaS",
+      "Zod Validation",
     ],
-    tags:['Next.js', 'React', 'Tailwind CSS', 'Invoice Generator', 'PDF Export', 'React Hook Form', 'ShadCN UI', 'Freelancing Tool', 'SaaS', 'Zod Validation'],
-    demoUrl: 'https://invoicely-ai.vercel.app/',
-    githubUrl: 'https://github.com/helloChirag28/InvoicelyAI',
+    demoUrl: "https://invoicely-ai.vercel.app/",
+    githubUrl: "https://github.com/helloChirag28/InvoicelyAI",
     icon: Shuffle,
+  },
+  {
+    title: "Smart Booking System for Local Businesses -BookEase",
+    description:"This is the demo application of Smart Booking System for Local Businesses",
+    longDescription: `Build a Smart Booking System web application called "BookEase" – designed for local service-based businesses such as salons, gyms, yoga studios, massage centers, or coaching classes.
+The app should support real-time slot booking, Stripe payment integration, and an AI assistant that helps users pick the best available time slot based on their preferences and past behavior.`,
+    image: "/images/BookEase1.png",
+    screenshots:
+      ["/images/BookEase1.png",
+       "/images/BookEase2.png",
+       "/images/BookEase3.png",
+       "/images/BookEase4.png"
+    ],
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Stripe",
+      "AI Assistant",
+      "Tailwind CSSs",
+      "Framer Motion",
+      "ShadCN UI",
+    ],
+    demoUrl: "https://book-ease-theta.vercel.app/",
+    githubUrl: "https://github.com/helloChirag28/BookEase",
+    icon: BedSingle,
   },
 ];
 
 const WaveBackground = () => {
-  const mesh = useRef<THREE.Mesh<THREE.PlaneGeometry, THREE.ShaderMaterial>>(null);
+  const mesh =
+    useRef<THREE.Mesh<THREE.PlaneGeometry, THREE.ShaderMaterial>>(null);
   const uniforms = useRef({
     uTime: { value: 0 },
-    uColorA: { value: new THREE.Color('#0f172a') },
-    uColorB: { value: new THREE.Color('#1e293b') },
+    uColorA: { value: new THREE.Color("#0f172a") },
+    uColorB: { value: new THREE.Color("#1e293b") },
   });
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
     const updateColors = (isDark: boolean) => {
       if (mesh.current) {
         if (isDark) {
-          mesh.current.material.uniforms.uColorA.value = new THREE.Color('#0f172a');
-          mesh.current.material.uniforms.uColorB.value = new THREE.Color('#1e293b');
+          mesh.current.material.uniforms.uColorA.value = new THREE.Color(
+            "#0f172a"
+          );
+          mesh.current.material.uniforms.uColorB.value = new THREE.Color(
+            "#1e293b"
+          );
         } else {
-          mesh.current.material.uniforms.uColorA.value = new THREE.Color('#ffffff');
-          mesh.current.material.uniforms.uColorB.value = new THREE.Color('#f8fafc');
+          mesh.current.material.uniforms.uColorA.value = new THREE.Color(
+            "#ffffff"
+          );
+          mesh.current.material.uniforms.uColorB.value = new THREE.Color(
+            "#f8fafc"
+          );
         }
       }
     };
@@ -167,9 +253,9 @@ const WaveBackground = () => {
 
     // Listen for changes
     const handler = (e: MediaQueryListEvent) => updateColors(e.matches);
-    mediaQuery.addEventListener('change', handler);
+    mediaQuery.addEventListener("change", handler);
 
-    return () => mediaQuery.removeEventListener('change', handler);
+    return () => mediaQuery.removeEventListener("change", handler);
   }, []);
 
   useFrame((state) => {
@@ -271,7 +357,10 @@ const ProjectCard = ({ project, index, onImageClick }: ProjectCardProps) => {
       <Dialog>
         <DialogTrigger asChild>
           <div className="cursor-pointer">
-            <div className="relative rounded-xl overflow-hidden bg-card backdrop-blur-sm border border-primary/10 shadow-xl transform-gpu transition-all duration-300 group-hover:shadow-2xl group-hover:scale-[1.02]" style={{ transform: "translateZ(75px)" }}>
+            <div
+              className="relative rounded-xl overflow-hidden bg-card backdrop-blur-sm border border-primary/10 shadow-xl transform-gpu transition-all duration-300 group-hover:shadow-2xl group-hover:scale-[1.02]"
+              style={{ transform: "translateZ(75px)" }}
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="aspect-video relative overflow-hidden">
                 <Image
@@ -287,11 +376,27 @@ const ProjectCard = ({ project, index, onImageClick }: ProjectCardProps) => {
               </div>
               <div className="p-4 md:p-6">
                 <div className="flex items-center gap-2 mb-2">
-                  <project.icon className="w-4 h-4 md:w-5 md:h-5 text-primary" style={{ transform: "translateZ(50px)" }} />
-                  <h3 className="text-lg md:text-xl font-semibold" style={{ transform: "translateZ(50px)" }}>{project.title}</h3>
+                  <project.icon
+                    className="w-4 h-4 md:w-5 md:h-5 text-primary"
+                    style={{ transform: "translateZ(50px)" }}
+                  />
+                  <h3
+                    className="text-lg md:text-xl font-semibold"
+                    style={{ transform: "translateZ(50px)" }}
+                  >
+                    {project.title}
+                  </h3>
                 </div>
-                <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4" style={{ transform: "translateZ(25px)" }}>{project.description}</p>
-                <div className="flex flex-wrap gap-1.5 md:gap-2" style={{ transform: "translateZ(35px)" }}>
+                <p
+                  className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4"
+                  style={{ transform: "translateZ(25px)" }}
+                >
+                  {project.description}
+                </p>
+                <div
+                  className="flex flex-wrap gap-1.5 md:gap-2"
+                  style={{ transform: "translateZ(35px)" }}
+                >
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
@@ -317,8 +422,8 @@ const ProjectCard = ({ project, index, onImageClick }: ProjectCardProps) => {
             <div className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {project.screenshots.map((screenshot, index) => (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className="relative aspect-video cursor-pointer group"
                     onClick={() => onImageClick(screenshot)}
                   >
@@ -329,13 +434,17 @@ const ProjectCard = ({ project, index, onImageClick }: ProjectCardProps) => {
                       className="rounded-lg shadow-md object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
-                      <span className="text-white text-sm font-medium">Click to preview</span>
+                      <span className="text-white text-sm font-medium">
+                        Click to preview
+                      </span>
                     </div>
                   </div>
                 ))}
               </div>
               <div className="prose prose-sm dark:prose-invert">
-                <p className="whitespace-pre-line text-sm md:text-base">{project.longDescription}</p>
+                <p className="whitespace-pre-line text-sm md:text-base">
+                  {project.longDescription}
+                </p>
               </div>
               <div className="flex flex-wrap gap-1.5 md:gap-2">
                 {project.tags.map((tag, index) => (
@@ -351,9 +460,9 @@ const ProjectCard = ({ project, index, onImageClick }: ProjectCardProps) => {
           </div>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-4 pt-4 border-t bg-background/95 backdrop-blur-sm flex-shrink-0">
             <Button asChild className="w-full sm:w-auto">
-              <a 
+              <a
                 href={project.demoUrl}
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 <ArrowUpRight className="mr-2 h-4 w-4" />
@@ -361,7 +470,11 @@ const ProjectCard = ({ project, index, onImageClick }: ProjectCardProps) => {
               </a>
             </Button>
             <Button variant="outline" asChild className="w-full sm:w-auto">
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Github className="mr-2 h-4 w-4" />
                 View Code
               </a>
@@ -383,16 +496,19 @@ const ProjectsSection = () => {
 
   useEffect(() => {
     const calculateProjectsPerPage = () => {
-      if (typeof window !== 'undefined') {
-        setProjectsPerPage(window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3);
+      if (typeof window !== "undefined") {
+        setProjectsPerPage(
+          window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3
+        );
       }
     };
 
     calculateProjectsPerPage();
 
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', calculateProjectsPerPage);
-      return () => window.removeEventListener('resize', calculateProjectsPerPage);
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", calculateProjectsPerPage);
+      return () =>
+        window.removeEventListener("resize", calculateProjectsPerPage);
     }
   }, []);
 
@@ -402,25 +518,25 @@ const ProjectsSection = () => {
       opacity: 0,
       transition: {
         x: { type: "spring", stiffness: 300, damping: 30 },
-        opacity: { duration: 0.2 }
-      }
+        opacity: { duration: 0.2 },
+      },
     }),
     center: {
       x: 0,
       opacity: 1,
       transition: {
         x: { type: "spring", stiffness: 300, damping: 30 },
-        opacity: { duration: 0.2 }
-      }
+        opacity: { duration: 0.2 },
+      },
     },
     exit: (direction: number) => ({
       x: direction < 0 ? 1000 : -1000,
       opacity: 0,
       transition: {
         x: { type: "spring", stiffness: 300, damping: 30 },
-        opacity: { duration: 0.2 }
-      }
-    })
+        opacity: { duration: 0.2 },
+      },
+    }),
   };
 
   const swipeConfidenceThreshold = 10000;
@@ -448,13 +564,16 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="py-12 md:py-20 relative overflow-hidden bg-white dark:bg-slate-950">
+    <section
+      id="projects"
+      className="py-12 md:py-20 relative overflow-hidden bg-white dark:bg-slate-950"
+    >
       <div className="absolute inset-0 h-full w-full">
         <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
           <WaveBackground />
         </Canvas>
       </div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -463,7 +582,9 @@ const ProjectsSection = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="flex flex-col sm:flex-row items-center justify-between mb-8 md:mb-12 gap-4">
-            <h2 className="text-2xl md:text-3xl font-bold">Featured Projects</h2>
+            <h2 className="text-2xl md:text-3xl font-bold">
+              Featured Projects
+            </h2>
             <div className="flex gap-2">
               <button
                 onClick={() => paginate(-1)}
@@ -494,7 +615,7 @@ const ProjectsSection = () => {
                   exit="exit"
                   transition={{
                     x: { type: "spring", stiffness: 300, damping: 30 },
-                    opacity: { duration: 0.2 }
+                    opacity: { duration: 0.2 },
                   }}
                   drag="x"
                   dragConstraints={{ left: 0, right: 0 }}
@@ -510,10 +631,10 @@ const ProjectsSection = () => {
                   className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 perspective-1000"
                 >
                   {currentProjects.map((project, index) => (
-                    <ProjectCard 
-                      key={index} 
-                      project={project} 
-                      index={index} 
+                    <ProjectCard
+                      key={index}
+                      project={project}
+                      index={index}
                       onImageClick={handleImageClick}
                     />
                   ))}
@@ -531,7 +652,7 @@ const ProjectsSection = () => {
                   setCurrentIndex(index);
                 }}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentIndex ? 'bg-primary w-4' : 'bg-primary/20'
+                  index === currentIndex ? "bg-primary w-4" : "bg-primary/20"
                 }`}
                 aria-label={`Go to page ${index + 1}`}
               />
@@ -542,7 +663,7 @@ const ProjectsSection = () => {
 
       {/* Full-screen Image Preview */}
       {selectedImage && (
-        <div 
+        <div
           className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >
