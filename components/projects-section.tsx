@@ -193,12 +193,12 @@ This is perfect for freelancers, small businesses, and agencies to generate and 
     description:"This is the demo application of Smart Booking System for Local Businesses",
     longDescription: `Build a Smart Booking System web application called "BookEase" – designed for local service-based businesses such as salons, gyms, yoga studios, massage centers, or coaching classes.
 The app should support real-time slot booking, Stripe payment integration, and an AI assistant that helps users pick the best available time slot based on their preferences and past behavior.`,
-    image: "/images/BookEase1.png",
+    image: "/images/Bookease1.png",
     screenshots:
-      ["/images/BookEase1.png",
-       "/images/BookEase2.png",
-       "/images/BookEase3.png",
-       "/images/BookEase4.png"
+      ["/images/Bookease1.png",
+       "/images/Bookease2.png",
+       "/images/Bookease3.png",
+       "/images/Bookease4.png"
     ],
     tags: [
       "Next.js",
