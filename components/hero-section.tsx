@@ -4,7 +4,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Github, Linkedin, Twitter } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Twitter, Download } from 'lucide-react';
 import Image from 'next/image';
 
 const FloatingCube = () => {
@@ -56,23 +56,65 @@ const HeroSection = () => {
             Specialized in modern web technologies and 3D animations.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center sm:justify-start">
-            <Button size="lg" className="w-full sm:w-auto text-base">
+            <Button 
+              size="lg" 
+              className="w-full sm:w-auto text-base"
+              onClick={() => {
+                const projectsSection = document.getElementById('projects');
+                projectsSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               View Projects
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button variant="outline" size="lg" className="w-full sm:w-auto text-base">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="w-full sm:w-auto text-base"
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                contactSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Contact Me
             </Button>
           </div>
-          <div className="flex gap-4 mt-6 md:mt-8 justify-center sm:justify-start">
-            <Button variant="ghost" size="icon" className="h-10 w-10">
+          <div className="flex flex-wrap gap-4 mt-6 md:mt-8 justify-center sm:justify-start items-center">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="h-10 w-10"
+              onClick={() => window.open('https://github.com/helloChirag28', '_blank')}
+            >
               <Github className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="h-10 w-10">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="h-10 w-10"
+              onClick={() => window.open('https://in.linkedin.com/in/chirag-joshi-b76153173', '_blank')}
+            >
               <Linkedin className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="h-10 w-10">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="h-10 w-10"
+              onClick={() => window.open('https://x.com/chiraag414?s=21', '_blank')}
+            >
               <Twitter className="h-5 w-5" />
+            </Button>
+            <Button 
+              variant="secondary" 
+              size="sm" 
+              className="gap-2"
+              onClick={() => {
+                // TODO: Add resume download functionality
+                console.log('Resume download clicked - PDF to be added later');
+              }}
+            >
+              <Download className="h-4 w-4" />
+              Download Resume
             </Button>
           </div>
         </motion.div>

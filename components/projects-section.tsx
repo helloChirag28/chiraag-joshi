@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Github, ExternalLink, Package, BookOpen, ShoppingCart, LucideIcon, ChevronLeft, ChevronRight, X, Shrink } from 'lucide-react';
+import { ArrowUpRight, Github, ExternalLink, Package, BookOpen, ShoppingCart, LucideIcon, ChevronLeft, ChevronRight, X, Shrink, Shuffle } from 'lucide-react';
 import { Button } from './ui/button';
 import {
   Dialog,
@@ -103,27 +103,39 @@ Add product details, choose style & mood — get ready-to-use prompts for Runway
     icon: Shrink,
   },
   {
-    title: 'Modern E-commerce Platform',
-    description: 'Full-featured e-commerce solution with product management, cart functionality, and payment integration.',
-    longDescription: `A complete e-commerce solution built with modern technologies and best practices. Features include:
+    title: 'FormForge AI Form Builder',
+    description: 'Build a smart, minimal, and highly usable AI Form Builder web application named "FormForge',
+    longDescription: `The core idea is that users just write a single-line prompt like: “Create a job application form”, and the system uses the OpenAI GPT API to auto-generate a full form:
 
-• Product catalog with categories and filters
-• Shopping cart and wishlist functionality
-• Secure payment processing with Stripe
-• Order management and tracking
-• Admin dashboard for inventory management
-• Analytics and sales reporting
-• Responsive design and optimized performance`,
-    image: '/images/ecommerce.jpg',
+with labeled fields, input types, validation rules, and sections if needed.
+
+Users can preview the form, edit it manually, and export the final result as JSON or copy the HTML code.`,
+    image: '/images/FromFrog1.png',
     screenshots: [
-      '/images/ecommerce-1.jpg',
-      '/images/ecommerce-2.jpg',
-      '/images/ecommerce-3.jpg',
+      '/images/FromFrog1.png',
+      '/images/FormFrog2.png',
+      '/images/FormFrog3.png',
     ],
-    tags: ['Next.js', 'Stripe', 'Tailwind CSS', 'Supabase', 'TypeScript', 'Redux'],
-    demoUrl: '#',
-    githubUrl: '#',
-    icon: ShoppingCart,
+    tags: ['Next.js', 'Tailwind CSS', 'Ollama', 'ShadCN/UI', 'Framer Motion', 'Prompt Engineering', 'AI Tools'],
+    demoUrl: 'https://form-forge-six.vercel.app/',
+    githubUrl: 'https://github.com/helloChirag28/FormForge',
+    icon: Shuffle,
+  },
+  {
+    title: 'Smart Invoice Generator — “InvoicelyAI”',
+    description: 'Build a modern, clean, and mobile-friendly Invoice Generator Web App called “InvoicelyAI',
+    longDescription: `The user can fill out a form with invoice details (client name, items, amounts, taxes, etc.), and on submit, the app will instantly generate a professional invoice PDF that can be downloaded or shared via link/email.
+
+This is perfect for freelancers, small businesses, and agencies to generate and send branded invoices in a few clicks.`,
+    image: '/images/Invoice2.png',
+    screenshots: [
+      '/images/Invocie1.png',
+      '/images/Invoice2.png'
+    ],
+    tags:['Next.js', 'React', 'Tailwind CSS', 'Invoice Generator', 'PDF Export', 'React Hook Form', 'ShadCN UI', 'Freelancing Tool', 'SaaS', 'Zod Validation'],
+    demoUrl: 'https://invoicely-ai.vercel.app/',
+    githubUrl: 'https://github.com/helloChirag28/InvoicelyAI',
+    icon: Shuffle,
   },
 ];
 

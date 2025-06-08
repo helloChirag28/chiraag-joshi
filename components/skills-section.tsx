@@ -6,15 +6,15 @@ import { Code2, Database, Globe, Layers } from 'lucide-react';
 const skills = {
   'Frontend Development': {
     icon: Globe,
-    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Three.js', 'Framer Motion'],
+    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Three.js', 'Framer Motion','Angular'],
   },
   'Backend Development': {
     icon: Database,
-    skills: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'REST APIs', 'GraphQL'],
+    skills: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'REST APIs', 'GraphQL','C#',],
   },
   'Programming Languages': {
     icon: Code2,
-    skills: ['JavaScript', 'TypeScript', 'Python', 'SQL', 'HTML', 'CSS'],
+    skills: ['JavaScript', 'TypeScript', '.NET', 'SQL', 'HTML', 'CSS','C++'],
   },
   'Tools & Technologies': {
     icon: Layers,
