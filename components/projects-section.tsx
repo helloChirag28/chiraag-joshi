@@ -22,6 +22,7 @@ import {
   Shrink,
   Shuffle,
   BedSingle,
+  PersonStanding
 } from "lucide-react";
 import { Button } from "./ui/button";
 import {
@@ -213,6 +214,23 @@ The app should support real-time slot booking, Stripe payment integration, and a
     demoUrl: "https://book-ease-theta.vercel.app/",
     githubUrl: "https://github.com/helloChirag28/BookEase",
     icon: BedSingle,
+  },
+  {
+    title: "HabitPulse – Track. Grow. Stay Motivated.",
+    description:"Build a modern, clean, and mobile-friendly AI-powered Habit Tracker web application named HabitPulse",
+    longDescription: `This app helps users track habits, stay consistent with daily motivational reminders, and receive weekly AI-powered progress analysis & improvement tips.
+
+The app should include habit creation, streak tracking, calendar view, and a CJ-style Motivation Bot that chats with the user and encourages them based on progress.`,
+    image: "/images/Habbitplus1.png",
+    screenshots:
+      ["/images/Habbitplus1.png",
+       "/images/Habbitplus2.png",
+       "/images/Habitplus3.png",
+    ],
+    tags: ['Next.js', 'Prisma', 'Tailwind CSS', 'OpenAI API', 'Framer Motion', 'AI Habit Tracker', 'CJ Bot', 'Mental Health App', 'ShadCN/UI'],
+    demoUrl: "https://habit-pulse-nine.vercel.app/",
+    githubUrl: "https://github.com/helloChirag28/HabitPulse",
+    icon: PersonStanding,
   },
 ];
 
