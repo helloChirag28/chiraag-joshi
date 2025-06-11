@@ -47,13 +47,12 @@ const HeroSection = () => {
               Chirag Joshi
               </h1>
               <p className="text-lg sm:text-xl text-muted-foreground font-medium">
-                Software Developer & Freelancer
+                Full Stack Engineer & Freelancer
               </p>
             </div>
           </div>
           <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8 text-center sm:text-left max-w-xl">
-            I create beautiful, functional, and user-friendly digital experiences.
-            Specialized in modern web technologies and 3D animations.
+                       I&#39;m currently focused on expanding my experience designing and developing high performing websites.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center sm:justify-start">
             <Button 
@@ -104,18 +103,23 @@ const HeroSection = () => {
             >
               <Twitter className="h-5 w-5" />
             </Button>
-            {/* <Button 
+            <Button 
               variant="secondary" 
               size="sm" 
               className="gap-2"
               onClick={() => {
-                // TODO: Add resume download functionality
-                console.log('Resume download clicked - PDF to be added later');
+                // Create a temporary link element to trigger the download
+                const link = document.createElement('a');
+                link.href = '/images/Chiraag_Joshi.pdf';
+                link.download = 'Chiraag_Joshi_Resume.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
               }}
             >
               <Download className="h-4 w-4" />
               Download Resume
-            </Button> */}
+            </Button>
           </div>
         </motion.div>
         
