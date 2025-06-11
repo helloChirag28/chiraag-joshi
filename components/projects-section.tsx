@@ -140,7 +140,7 @@ Add product details, choose style & mood — get ready-to-use prompts for Runway
     title: "FormForge AI Form Builder",
     description:
       'Build a smart, minimal, and highly usable AI Form Builder web application named "FormForge',
-    longDescription: `The core idea is that users just write a single-line prompt like: “Create a job application form”, and the system uses the OpenAI GPT API to auto-generate a full form:
+    longDescription: `The core idea is that users just write a single-line prompt like: "Create a job application form", and the system uses the OpenAI GPT API to auto-generate a full form:
 
 with labeled fields, input types, validation rules, and sections if needed.
 
@@ -167,7 +167,7 @@ Users can preview the form, edit it manually, and export the final result as JSO
   {
     title: "Smart Invoice Generator — InvoicelyAI",
     description:
-      "Build a modern, clean, and mobile-friendly Invoice Generator Web App called “InvoicelyAI",
+      "Build a modern, clean, and mobile-friendly Invoice Generator Web App called InvoicelyAI",
     longDescription: `The user can fill out a form with invoice details (client name, items, amounts, taxes, etc.), and on submit, the app will instantly generate a professional invoice PDF that can be downloaded or shared via link/email.
 
 This is perfect for freelancers, small businesses, and agencies to generate and send branded invoices in a few clicks.`,
@@ -233,6 +233,8 @@ The app should include habit creation, streak tracking, calendar view, and a CJ-
     icon: PersonStanding,
   },
 ];
+
+
 
 const WaveBackground = () => {
   const mesh =
@@ -586,9 +588,9 @@ const ProjectsSection = () => {
       id="projects"
       className="py-12 md:py-20 relative overflow-hidden bg-white dark:bg-slate-950"
     >
-      <div className="absolute inset-0 h-full w-full">
-        <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-          <WaveBackground />
+              <div className="absolute inset-0 h-full w-full">
+          <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+            <WaveBackground />
         </Canvas>
       </div>
 
