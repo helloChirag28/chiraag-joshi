@@ -333,7 +333,7 @@ const HeroSection = () => {
           <div className="flex flex-col items-center sm:flex-row sm:items-start gap-4 sm:gap-8 mb-6 md:mb-8">
             <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-primary/20 shadow-lg">
               <Image
-                src="/images/Profile-Photo1.jpeg"
+                src="/images/profile-photo1.jpeg"
                 alt="Profile"
                 fill
                 className="object-cover object-center"

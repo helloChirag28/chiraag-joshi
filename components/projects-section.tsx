@@ -22,7 +22,7 @@ import {
   Shrink,
   Shuffle,
   BedSingle,
-  PersonStanding
+  PersonStanding,
 } from "lucide-react";
 import { Button } from "./ui/button";
 import {
@@ -46,6 +46,11 @@ interface Project {
   title: string;
   description: string;
   longDescription: string;
+  summaryOfProject: {
+    features: (string | { title: string; children: string[] })[];
+    tech: string[];
+    status: string;
+  };
   image: string;
   screenshots: string[];
   tags: string[];
@@ -59,11 +64,61 @@ const projects: Project[] = [
     title: "AI Persona",
     description:
       "A modern analytics dashboard with real-time data visualization, user management, and subscription handling.",
-    longDescription: `A sleek, animated AI web app where users build digital personas by selecting moods, professions, and interests — and AI generates a visual + textual 
-    representation of that persona. Think of it as a blend of an interactive toy, design showcase, and smart AI
-    🧠 AI Features
-    1. OpenAI (GPT-4) generates personality bio, strengths, career path.
-    2. Local memory — shows previous generated personas in a card grid.`,
+    longDescription: `A sleek, animated AI web app where users build digital personas by selecting moods, professions, and interests — and AI generates a visual + textual representation of that persona. Think of it as a blend of an interactive toy, design showcase, and smart AI.
+
+🧠 AI Features
+1. OpenAI (GPT-4) generates personality bio, strengths, career path.
+2. Local memory — shows previous generated personas in a card grid.`,
+    summaryOfProject: {
+      features: [
+        {
+          title: "1. Landing Page (/)",
+          children: [
+            "Hero section with:",
+            "Big animated headline: 'Craft Your Digital Twin with AI.'",
+            "Background fluid blobs using Framer Motion.",
+            "Scroll-to-CTA section showing preview steps:",
+            "→ Choose Mood",
+            "→ Select Profession",
+            "→ Add Interests",
+            "→ View Persona",
+            "CTA button: navigates to Builder Dashboard."
+          ]
+        },
+        {
+          title: "2. Builder Page (/builder)",
+          children: [
+            "Two-Column Layout:",
+            "Left Column:",
+            "PersonaForm",
+            "• Dropdown for Mood (Calm, Energetic, etc.)",
+            "• Dropdown for Profession (Developer, Artist, etc.)",
+            "• Tag input for Interests",
+            "Right Column:",
+            "PersonaCard (Preview)",
+            "• Placeholder or animated container for persona output",
+            "• Generate Button Logic:",
+            "  - Calls OpenAI API (via /lib/openai.ts)",
+            "  - Generates:",
+            "    → Random name",
+            "    → Bio (1–2 paragraphs)",
+            "    → Traits and Skills",
+            "  - Loading state with shimmer / typewriter effect",
+            "  - Result shown in glassmorphic animated card (Framer Motion)"
+          ]
+        },
+        {
+          title: "Save Persona",
+          children: [
+            "Adds result to local state/Zustand store",
+            "Displays saved personas in a PersonaGrid component (masonry layout)",
+            "Cards animate on hover and support filter by Mood/Profession"
+          ]
+        }
+      ],
+      tech: [],
+      status: "Live and actively maintained",
+    },
     image: "/images/AIPersona1.png",
     screenshots: [
       "/images/AIPersona1.png",
@@ -82,6 +137,25 @@ const projects: Project[] = [
     longDescription: `This premium landing page showcases StrideX's urban fashion identity through rich animations, video campaigns, and bold typography.
      Built with Next.js 14 and Framer Motion, the site delivers an
      immersive brand experience with product highlights, hype-building sections, and interactive visuals — designed to captivate fashion-forward users.`,
+    summaryOfProject: {
+      features: [
+        "Immersive brand experience",
+        "Rich animations and transitions",
+        "Video campaign integration",
+        "Product showcase",
+        "Interactive visuals",
+      ],
+      tech: [
+        "Next.js 14",
+        "TypeScript",
+        "TailwindCSS",
+        "Framer Motion",
+        "GSAP",
+        "ShadCN/UI",
+        "Bebas Neue font",
+      ],
+      status: "Live and actively maintained",
+    },
     image: "/images/Stridex1.png",
     screenshots: [
       "/images/Stridex2.png",
@@ -115,6 +189,24 @@ Add product details, choose style & mood — get ready-to-use prompts for Runway
 ⚡ Instant prompt preview & copy
 🧱 Built with Next.js, TailwindCSS, ShadCN
 🎥 Perfect for ads, demos, and reels`,
+    summaryOfProject: {
+      features: [
+        "Product details input",
+        "Style and mood selection",
+        "Instant prompt generation",
+        "Prompt preview and copy",
+        "Multiple AI video tool support",
+      ],
+      tech: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "ShadCN/UI",
+        "Framer Motion",
+        "Prompt Engineering",
+      ],
+      status: "Live and actively maintained",
+    },
     image: "/images/Cine1.png",
     screenshots: [
       "/images/Cine1.png",
@@ -145,6 +237,24 @@ Add product details, choose style & mood — get ready-to-use prompts for Runway
 with labeled fields, input types, validation rules, and sections if needed.
 
 Users can preview the form, edit it manually, and export the final result as JSON or copy the HTML code.`,
+    summaryOfProject: {
+      features: [
+        "AI-powered form generation",
+        "Single-line prompt input",
+        "Form preview and editing",
+        "JSON and HTML export",
+        "Validation rules generation",
+      ],
+      tech: [
+        "Next.js",
+        "Tailwind CSS",
+        "Ollama",
+        "ShadCN/UI",
+        "Framer Motion",
+        "Prompt Engineering",
+      ],
+      status: "Live and actively maintained",
+    },
     image: "/images/FromFrog1.png",
     screenshots: [
       "/images/FromFrog1.png",
@@ -171,6 +281,25 @@ Users can preview the form, edit it manually, and export the final result as JSO
     longDescription: `The user can fill out a form with invoice details (client name, items, amounts, taxes, etc.), and on submit, the app will instantly generate a professional invoice PDF that can be downloaded or shared via link/email.
 
 This is perfect for freelancers, small businesses, and agencies to generate and send branded invoices in a few clicks.`,
+    summaryOfProject: {
+      features: [
+        "Professional invoice generation",
+        "PDF export functionality",
+        "Client management",
+        "Tax calculation",
+        "Email sharing",
+      ],
+      tech: [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "PDF Export",
+        "React Hook Form",
+        "ShadCN UI",
+        "Zod Validation",
+      ],
+      status: "Live and actively maintained",
+    },
     image: "/images/Invoice2.png",
     screenshots: ["/images/Invocie1.png", "/images/Invoice2.png"],
     tags: [
@@ -191,15 +320,35 @@ This is perfect for freelancers, small businesses, and agencies to generate and 
   },
   {
     title: "Smart Booking System for Local Businesses -BookEase",
-    description:"This is the demo application of Smart Booking System for Local Businesses",
+    description:
+      "This is the demo application of Smart Booking System for Local Businesses",
     longDescription: `Build a Smart Booking System web application called "BookEase" – designed for local service-based businesses such as salons, gyms, yoga studios, massage centers, or coaching classes.
 The app should support real-time slot booking, Stripe payment integration, and an AI assistant that helps users pick the best available time slot based on their preferences and past behavior.`,
+    summaryOfProject: {
+      features: [
+        "Real-time slot booking",
+        "Stripe payment integration",
+        "AI assistant for slot selection",
+        "Business profile management",
+        "Customer booking history",
+      ],
+      tech: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Stripe",
+        "AI Assistant",
+        "Framer Motion",
+        "ShadCN UI",
+      ],
+      status: "Live and actively maintained",
+    },
     image: "/images/Bookease1.png",
-    screenshots:
-      ["/images/Bookease1.png",
-       "/images/Bookease2.png",
-       "/images/Bookease3.png",
-       "/images/Bookease4.png"
+    screenshots: [
+      "/images/Bookease1.png",
+      "/images/Bookease2.png",
+      "/images/Bookease3.png",
+      "/images/Bookease4.png",
     ],
     tags: [
       "Next.js",
@@ -217,24 +366,51 @@ The app should support real-time slot booking, Stripe payment integration, and a
   },
   {
     title: "HabitPulse – Track. Grow. Stay Motivated.",
-    description:"Build a modern, clean, and mobile-friendly AI-powered Habit Tracker web application named HabitPulse",
+    description:
+      "Build a modern, clean, and mobile-friendly AI-powered Habit Tracker web application named HabitPulse",
     longDescription: `This app helps users track habits, stay consistent with daily motivational reminders, and receive weekly AI-powered progress analysis & improvement tips.
 
 The app should include habit creation, streak tracking, calendar view, and a CJ-style Motivation Bot that chats with the user and encourages them based on progress.`,
+    summaryOfProject: {
+      features: [
+        "Habit tracking and streak monitoring",
+        "AI-powered progress analysis",
+        "Daily motivational reminders",
+        "Calendar view",
+        "CJ-style Motivation Bot",
+      ],
+      tech: [
+        "Next.js",
+        "Prisma",
+        "Tailwind CSS",
+        "OpenAI API",
+        "Framer Motion",
+        "ShadCN/UI",
+      ],
+      status: "Live and actively maintained",
+    },
     image: "/images/Habbitplus1.png",
-    screenshots:
-      ["/images/Habbitplus1.png",
-       "/images/Habbitplus2.png",
-       "/images/Habitplus3.png",
+    screenshots: [
+      "/images/Habbitplus1.png",
+      "/images/Habbitplus2.png",
+      "/images/Habitplus3.png",
     ],
-    tags: ['Next.js', 'Prisma', 'Tailwind CSS', 'OpenAI API', 'Framer Motion', 'AI Habit Tracker', 'CJ Bot', 'Mental Health App', 'ShadCN/UI'],
+    tags: [
+      "Next.js",
+      "Prisma",
+      "Tailwind CSS",
+      "OpenAI API",
+      "Framer Motion",
+      "AI Habit Tracker",
+      "CJ Bot",
+      "Mental Health App",
+      "ShadCN/UI",
+    ],
     demoUrl: "https://habit-pulse-nine.vercel.app/",
     githubUrl: "https://github.com/helloChirag28/HabitPulse",
     icon: PersonStanding,
   },
 ];
-
-
 
 const WaveBackground = () => {
   const mesh =
@@ -499,12 +675,78 @@ const ProjectCard = ({ project, index, onImageClick }: ProjectCardProps) => {
                 View Code
               </a>
             </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline" className="w-full sm:w-auto">
+                  <BookOpen className="mr-2 h-4 w-4" />
+                  Project Description
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-2xl">
+                <DialogHeader>
+                  <DialogTitle className="flex items-center gap-2">
+                    <project.icon className="w-5 h-5" />
+                    {project.title}
+                  </DialogTitle>
+                </DialogHeader>
+                <div className="space-y-4 max-h-[60vh] overflow-y-auto">
+                  <div>
+                    <h4 className="text-sm font-semibold mb-2">Features</h4>
+                    {renderFeatures(project.summaryOfProject.features)}
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold mb-2">Tech Stack</h4>
+                    <ul className="list-disc list-inside space-y-1">
+                      {project.summaryOfProject.tech.map((tech, index) => (
+                        <li
+                          key={index}
+                          className="text-sm text-muted-foreground"
+                        >
+                          {tech}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold mb-2">
+                      Current Status
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {project.summaryOfProject.status}
+                    </p>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </DialogContent>
       </Dialog>
     </motion.div>
   );
 };
+
+function renderFeatures(features: (string | { title: string; children: string[] })[]): JSX.Element {
+  return (
+    <ul className="list-disc list-inside space-y-1">
+      {features.map((feature: string | { title: string; children: string[] }, idx: number) =>
+        typeof feature === 'string' ? (
+          <li key={idx} className="ml-4 list-none">{feature}</li>
+        ) : (
+          <li key={idx}>
+            <span className="font-medium">{feature.title}</span>
+            {feature.children && (
+              <ul className="list-disc ml-6 mt-1">
+                {feature.children.map((child: string, cidx: number) => (
+                  <li key={cidx} className="list-disc ml-2">{child}</li>
+                ))}
+              </ul>
+            )}
+          </li>
+        )
+      )}
+    </ul>
+  );
+}
 
 const ProjectsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -588,9 +830,9 @@ const ProjectsSection = () => {
       id="projects"
       className="py-12 md:py-20 relative overflow-hidden bg-white dark:bg-slate-950"
     >
-              <div className="absolute inset-0 h-full w-full">
-          <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-            <WaveBackground />
+      <div className="absolute inset-0 h-full w-full">
+        <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+          <WaveBackground />
         </Canvas>
       </div>
 
