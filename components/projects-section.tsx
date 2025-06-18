@@ -7,6 +7,7 @@ import {
   useSpring,
   useTransform,
   AnimatePresence,
+  time,
 } from "framer-motion";
 import {
   ArrowUpRight,
@@ -48,7 +49,6 @@ interface Project {
   longDescription: string;
   summaryOfProject: {
     features: (string | { title: string; children: string[] })[];
-    tech: string[];
     status: string;
   };
   image: string;
@@ -72,51 +72,19 @@ const projects: Project[] = [
     summaryOfProject: {
       features: [
         {
-          title: "1. Landing Page (/)",
+          title: "Key Features",
           children: [
-            "Hero section with:",
-            "Big animated headline: 'Craft Your Digital Twin with AI.'",
-            "Background fluid blobs using Framer Motion.",
-            "Scroll-to-CTA section showing preview steps:",
-            "→ Choose Mood",
-            "→ Select Profession",
-            "→ Add Interests",
-            "→ View Persona",
-            "CTA button: navigates to Builder Dashboard."
-          ]
+            "Landing Page with animated hero, smooth scroll, and CTA.",
+            "Builder Page with:",
+            "Left: Form to select mood, profession, interests.",
+            "Right: Animated Persona Card (glassmorphic).",
+            "On 'Generate': Calls OpenAI → shows name, bio, skills.",
+            "Typewriter or shimmer loader animation.",
+            "Saved Personas Grid:",
+            "Shows generated personas with filters and animations.",
+          ],
         },
-        {
-          title: "2. Builder Page (/builder)",
-          children: [
-            "Two-Column Layout:",
-            "Left Column:",
-            "PersonaForm",
-            "• Dropdown for Mood (Calm, Energetic, etc.)",
-            "• Dropdown for Profession (Developer, Artist, etc.)",
-            "• Tag input for Interests",
-            "Right Column:",
-            "PersonaCard (Preview)",
-            "• Placeholder or animated container for persona output",
-            "• Generate Button Logic:",
-            "  - Calls OpenAI API (via /lib/openai.ts)",
-            "  - Generates:",
-            "    → Random name",
-            "    → Bio (1–2 paragraphs)",
-            "    → Traits and Skills",
-            "  - Loading state with shimmer / typewriter effect",
-            "  - Result shown in glassmorphic animated card (Framer Motion)"
-          ]
-        },
-        {
-          title: "Save Persona",
-          children: [
-            "Adds result to local state/Zustand store",
-            "Displays saved personas in a PersonaGrid component (masonry layout)",
-            "Cards animate on hover and support filter by Mood/Profession"
-          ]
-        }
       ],
-      tech: [],
       status: "Live and actively maintained",
     },
     image: "/images/AIPersona1.png",
@@ -139,22 +107,29 @@ const projects: Project[] = [
      immersive brand experience with product highlights, hype-building sections, and interactive visuals — designed to captivate fashion-forward users.`,
     summaryOfProject: {
       features: [
-        "Immersive brand experience",
-        "Rich animations and transitions",
-        "Video campaign integration",
-        "Product showcase",
-        "Interactive visuals",
+        "1. Fullscreen background video with bold headline: 'Unleash the Street Inside You.'",
+
+        "2. Subheading + dual CTAs: Shop Now | Watch Campaign with animated text & 3D shoe.",
+
+        "3. Horizontal split brand story: Left heading, Right photo grid with hover zoom.",
+
+        "4. Scroll-triggered animations using Framer Motion for dynamic feel.",
+
+        "5. Lifestyle taglines like 'Run. Jump. Dominate.' animate in subtly.",
+
+        "6. Product showcase with horizontal scroll or parallax grid.",
+
+        "7. Feature cards with gradient backgrounds, image zoom, and bounce effect.",
+
+        "8. Tab switcher for Shoes | Apparel | Limited Drops.",
+
+        "9. Full-width embedded campaign video with animated play button.",
+
+        "10. User highlight slider with real content + overlay quotes: 'It's not fashion. It's expression.'",
       ],
-      tech: [
-        "Next.js 14",
-        "TypeScript",
-        "TailwindCSS",
-        "Framer Motion",
-        "GSAP",
-        "ShadCN/UI",
-        "Bebas Neue font",
-      ],
-      status: "Live and actively maintained",
+      status: `This is a live demo application showcasing the design, animations, and responsiveness of the website.
+ It is fully responsive across all devices and highlights the visual experience
+ Functionality will be added based on user requirements and feature priorities as we move forward.`,
     },
     image: "/images/Stridex1.png",
     screenshots: [
@@ -191,19 +166,49 @@ Add product details, choose style & mood — get ready-to-use prompts for Runway
 🎥 Perfect for ads, demos, and reels`,
     summaryOfProject: {
       features: [
-        "Product details input",
-        "Style and mood selection",
-        "Instant prompt generation",
-        "Prompt preview and copy",
-        "Multiple AI video tool support",
-      ],
-      tech: [
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "ShadCN/UI",
-        "Framer Motion",
-        "Prompt Engineering",
+        {
+          title: "Interactive Prompt Builder",
+          children: [
+            "Dynamic form to input product details, features, visual style, and mood.",
+            "Real-time cinematic prompt generation.",
+          ],
+        },
+        {
+          title: "Prompt Management Tools",
+          children: [
+            "Copy, share, and download generated prompts.",
+            "Local storage support for saving and managing user prompts.",
+          ],
+        },
+        {
+          title: "Live Animated Preview Cards",
+          children: [
+            "Beautiful cards with smooth Framer Motion transitions.",
+            "Cinematic preview with real-time updates.",
+          ],
+        },
+        {
+          title: "Template & Inspiration System",
+          children: [
+            "Pre-built templates for quick start.",
+            "Random slogan/mood suggestions for creative exploration.",
+          ],
+        },
+        {
+          title: "Responsive UI/UX Design",
+          children: [
+            "Mobile-first design with grid system optimized for all screen sizes.",
+            "Seamless experience across mobile, tablet, and desktop.",
+          ],
+        },
+        {
+          title: "Modern Aesthetic",
+          children: [
+            "Glassmorphism, gradient backgrounds, and micro-interactions.",
+            "Cinematic color palette: deep blues, purples, golds.",
+            "Professional typography for strong visual hierarchy.",
+          ],
+        },
       ],
       status: "Live and actively maintained",
     },
@@ -239,19 +244,56 @@ with labeled fields, input types, validation rules, and sections if needed.
 Users can preview the form, edit it manually, and export the final result as JSON or copy the HTML code.`,
     summaryOfProject: {
       features: [
-        "AI-powered form generation",
-        "Single-line prompt input",
-        "Form preview and editing",
-        "JSON and HTML export",
-        "Validation rules generation",
-      ],
-      tech: [
-        "Next.js",
-        "Tailwind CSS",
-        "Ollama",
-        "ShadCN/UI",
-        "Framer Motion",
-        "Prompt Engineering",
+        {
+          title: "AI-Powered Form Generation (via Ollama)",
+          children: [
+            "Instantly generate entire forms from natural language prompts.",
+            "Powered by Ollama (local LLM) for private, fast, and customizable AI inference.",
+          ],
+        },
+        {
+          title: "Real-Time Preview & Editing",
+          children: [
+            "Live preview of generated forms with seamless interaction.",
+            "Drag-and-drop field reordering and inline customization.",
+          ],
+        },
+        {
+          title: "Flexible Export Options",
+          children: [
+            "Export form structure as JSON, HTML, or shareable links.",
+            "Developer-friendly output for easy integration.",
+          ],
+        },
+        {
+          title: "Form Validation & Live Feedback",
+          children: [
+            "Real-time form validation with customizable rules.",
+            "Visual error indicators and smooth error handling UX.",
+          ],
+        },
+        {
+          title: "Responsive SaaS-Style Interface",
+          children: [
+            "Modern, clean design inspired by top-tier SaaS products.",
+            "Built for performance and clarity on all device sizes.",
+          ],
+        },
+        {
+          title: "Fully Responsive & Mobile-First",
+          children: [
+            "Adaptive layouts for mobile, tablet, and desktop.",
+            "Touch-optimized interactions and scaling UI components.",
+          ],
+        },
+        {
+          title: "Polished UI/UX Details",
+          children: [
+            "Framer Motion animations, glass-morphism backgrounds, and card-based layouts.",
+            "Inter font with well-structured visual hierarchy.",
+            "Hover states, subtle shadows, and interactive loading effects.",
+          ],
+        },
       ],
       status: "Live and actively maintained",
     },
@@ -289,15 +331,6 @@ This is perfect for freelancers, small businesses, and agencies to generate and 
         "Tax calculation",
         "Email sharing",
       ],
-      tech: [
-        "Next.js",
-        "React",
-        "Tailwind CSS",
-        "PDF Export",
-        "React Hook Form",
-        "ShadCN UI",
-        "Zod Validation",
-      ],
       status: "Live and actively maintained",
     },
     image: "/images/Invoice2.png",
@@ -326,22 +359,62 @@ This is perfect for freelancers, small businesses, and agencies to generate and 
 The app should support real-time slot booking, Stripe payment integration, and an AI assistant that helps users pick the best available time slot based on their preferences and past behavior.`,
     summaryOfProject: {
       features: [
-        "Real-time slot booking",
-        "Stripe payment integration",
-        "AI assistant for slot selection",
-        "Business profile management",
-        "Customer booking history",
+        {
+          title: "Real-Time Booking Engine",
+          children: [
+            "Supabase integration for live booking data sync.",
+            "Instant availability checks with dynamic slot updates.",
+          ],
+        },
+        {
+          title: "Secure Payment System",
+          children: [
+            "Full Stripe integration with checkout, webhooks, and refunds.",
+            "Professional UI using Stripe Elements for a seamless payment experience.",
+          ],
+        },
+        {
+          title: "AI-Powered Booking Assistant",
+          children: [
+            "Conversational AI modal powered by OpenAI API.",
+            "Smart time slot suggestions based on user intent and history.",
+          ],
+        },
+        {
+          title: "Authentication & Admin Control",
+          children: [
+            "Secure login/signup with role-based access.",
+            "Admin dashboard with real-time bookings, user data, and controls.",
+          ],
+        },
+        {
+          title: "Automated Notifications",
+          children: [
+            "Email confirmations and alerts for new, updated, or canceled bookings.",
+            "Integration-ready for transactional email services (e.g., Resend, Postmark).",
+          ],
+        },
+        {
+          title: "Live Analytics & Dashboard",
+          children: [
+            "Real-time metrics on bookings, revenue, and user activity.",
+            "Clean, responsive UI for both users and admins.",
+          ],
+        },
+        {
+          title: "Responsive & Polished UI/UX",
+          children: [
+            "Maintains gradient visuals and smooth animations.",
+            "Optimized layout for mobile, tablet, and desktop experiences.",
+            "Real-time slot coloring and visual feedback on booking states.",
+          ],
+        },
       ],
-      tech: [
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "Stripe",
-        "AI Assistant",
-        "Framer Motion",
-        "ShadCN UI",
-      ],
-      status: "Live and actively maintained",
+      status: `This is a demo version of the application showcasing the design, user flow, and core structure.
+Currently, Supabase integration, Stripe payments, and authentication are not fully functional, as they require real accounts and secure setup. These features are temporarily disabled or mocked for demonstration purposes.
+The app is also not fully responsive yet, as the primary focus has been on building the booking flow and UI/UX foundation.
+
+This version is intended for previewing the concept, layout, and design before full production deployment.`,
     },
     image: "/images/Bookease1.png",
     screenshots: [
@@ -379,15 +452,10 @@ The app should include habit creation, streak tracking, calendar view, and a CJ-
         "Calendar view",
         "CJ-style Motivation Bot",
       ],
-      tech: [
-        "Next.js",
-        "Prisma",
-        "Tailwind CSS",
-        "OpenAI API",
-        "Framer Motion",
-        "ShadCN/UI",
-      ],
-      status: "Live and actively maintained",
+      status: `The application is currently in demo mode showcasing the core features, UI/UX, and functionality flow.
+     The Motivation Bot (CJ-style) is not fully functional yet, as OpenAI integration is pending.
+    Currently, habit tasks and streaks are stored in local storage, simulating real app behavior for demonstration purposes.
+    The UI is fully interactive, and users can test the habit creation, calendar view, and streak tracking flows.`,
     },
     image: "/images/Habbitplus1.png",
     screenshots: [
@@ -695,19 +763,6 @@ const ProjectCard = ({ project, index, onImageClick }: ProjectCardProps) => {
                     {renderFeatures(project.summaryOfProject.features)}
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold mb-2">Tech Stack</h4>
-                    <ul className="list-disc list-inside space-y-1">
-                      {project.summaryOfProject.tech.map((tech, index) => (
-                        <li
-                          key={index}
-                          className="text-sm text-muted-foreground"
-                        >
-                          {tech}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
                     <h4 className="text-sm font-semibold mb-2">
                       Current Status
                     </h4>
@@ -725,24 +780,34 @@ const ProjectCard = ({ project, index, onImageClick }: ProjectCardProps) => {
   );
 };
 
-function renderFeatures(features: (string | { title: string; children: string[] })[]): JSX.Element {
+function renderFeatures(
+  features: (string | { title: string; children: string[] })[]
+): JSX.Element {
   return (
     <ul className="list-disc list-inside space-y-1">
-      {features.map((feature: string | { title: string; children: string[] }, idx: number) =>
-        typeof feature === 'string' ? (
-          <li key={idx} className="ml-4 list-none">{feature}</li>
-        ) : (
-          <li key={idx}>
-            <span className="font-medium">{feature.title}</span>
-            {feature.children && (
-              <ul className="list-disc ml-6 mt-1">
-                {feature.children.map((child: string, cidx: number) => (
-                  <li key={cidx} className="list-disc ml-2">{child}</li>
-                ))}
-              </ul>
-            )}
-          </li>
-        )
+      {features.map(
+        (
+          feature: string | { title: string; children: string[] },
+          idx: number
+        ) =>
+          typeof feature === "string" ? (
+            <li key={idx} className="ml-4 list-none">
+              {feature}
+            </li>
+          ) : (
+            <li key={idx}>
+              <span className="font-medium">{feature.title}</span>
+              {feature.children && (
+                <ul className="list-disc ml-6 mt-1">
+                  {feature.children.map((child: string, cidx: number) => (
+                    <li key={cidx} className="list-disc ml-2">
+                      {child}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          )
       )}
     </ul>
   );
