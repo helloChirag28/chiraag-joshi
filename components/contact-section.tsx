@@ -42,7 +42,7 @@ const ContactSection = () => {
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
         {
-          to_email: 'chiraag414@gmail.com',
+          to_email: 'hello.chirag28@gmail.com',
           from_name: formData.name,
           from_email: formData.email,
           reply_to: formData.email,
@@ -90,7 +90,7 @@ const ContactSection = () => {
                 <Mail className="h-5 w-5 md:h-6 md:w-6 text-primary" />
                 <div>
                   <h3 className="text-sm md:text-base font-semibold">Email</h3>
-                  <p className="text-sm md:text-base text-muted-foreground">chiraag414@gmail.com</p>
+                  <p className="text-sm md:text-base text-muted-foreground">hello.chirag28@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 md:gap-4">

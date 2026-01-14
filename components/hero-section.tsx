@@ -4,7 +4,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Float, Text, useTexture, Sphere, Box, Torus, Cone } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Github, Linkedin, Twitter, Download } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Twitter } from 'lucide-react';
 import Image from 'next/image';
 import { useRef, useMemo, useState, useEffect } from 'react';
 import * as THREE from 'three';
@@ -400,23 +400,6 @@ const HeroSection = () => {
               onClick={() => window.open('https://x.com/chiraag414?s=21', '_blank')}
             >
               <Twitter className="h-5 w-5" />
-            </Button>
-            <Button 
-              variant="secondary" 
-              size="sm" 
-              className="gap-2"
-              onClick={() => {
-                // Create a temporary link element to trigger the download
-                const link = document.createElement('a');
-                link.href = '/images/Chiraag_Joshi.pdf';
-                link.download = 'Chiraag_Joshi_Resume.pdf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }}
-            >
-              <Download className="h-4 w-4" />
-              Download Resume
             </Button>
           </div>
         </motion.div>
