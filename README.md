@@ -3,9 +3,9 @@
 Personal portfolio of **Chirag Joshi**, Full Stack Engineer.
 Canonical domain: https://chiraagjoshi.com · Current deployment: https://chiraag-joshi.vercel.app
 
-## Stack (current, v1)
+## Stack
 
-- Next.js 13.5 (App Router, static export) · React 18 · TypeScript
+- Next.js 16 (App Router, static export) · React 19 · TypeScript
 - Tailwind CSS · shadcn/ui · Framer Motion
 - Three.js / React Three Fiber (hero scene)
 - EmailJS (contact form)
@@ -14,7 +14,7 @@ Portfolio 2.0 is being built in phases. Planning documents are kept locally in `
 
 ## Getting started
 
-Requirements: Node.js 16.14+ (Next 13.5; Node 20 LTS or newer recommended). Phase 2A upgrades to Next 16, which needs Node.js 20.9+.
+Requirements: Node.js 20.9+ (required by Next.js 16).
 
 ```bash
 npm install
@@ -29,7 +29,7 @@ npm run dev                  # http://localhost:3000
 | `npm run dev` | Development server |
 | `npm run build` | Production build (static export to `out/`) |
 | `npm run start` | Not used with static export; serve `out/` instead |
-| `npm run lint` | ESLint (`next/core-web-vitals`) |
+| `npm run lint` | ESLint 9 flat config (`eslint.config.mjs`, `eslint-config-next/core-web-vitals`) |
 
 ## Environment variables
 
