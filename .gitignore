@@ -33,3 +33,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# private files kept locally, never committed or deployed
+/.private/
+
+# planning docs and AI handoff notes stay local, never committed
+/docs/
+/CLAUDE.md
