@@ -26,7 +26,7 @@ export const expertise: ExpertiseArea[] = [
   {
     area: "AI integration",
     description: "AI-powered capabilities and workflows in products, including local LLMs",
-    tools: ["Ollama", "LLM APIs"],
+    tools: ["Claude", "AI agents", "RAG"],
   },
   {
     area: "UI/UX implementation",
