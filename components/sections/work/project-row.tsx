@@ -36,7 +36,7 @@ export function ProjectRow({ project, index, total }: { project: Project; index:
         <p className="mt-4 text-lead text-fg-muted">{project.summary}</p>
         {project.context ? <p className="mt-4 text-small text-fg-muted">{project.context}</p> : null}
 
-        <MonoLabel as="p" className="mt-8 text-fg-faint">What it does</MonoLabel>
+        <MonoLabel as="p" className="mt-8">What it does</MonoLabel>
         <ul className="mt-3 space-y-2.5">
           {project.built.map((item) => (
             <li key={item} className="flex gap-3 text-small text-fg-muted">

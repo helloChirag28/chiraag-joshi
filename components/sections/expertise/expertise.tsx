@@ -23,7 +23,7 @@ export function Expertise() {
           <li key={item.area} className="border-b border-line md:odd:border-r md:odd:pr-8 md:even:pl-8">
             <Reveal delay={cappedDelay(i % 2)} className="flex h-full flex-col gap-4 py-8">
               <div className="flex items-baseline gap-4">
-                <MonoLabel className="text-fg-faint">{String(i + 1).padStart(2, "0")}</MonoLabel>
+                <MonoLabel>{String(i + 1).padStart(2, "0")}</MonoLabel>
                 <h3 className="font-geist text-h3 font-medium text-fg">{item.area}</h3>
               </div>
               <p className="max-w-measure text-body text-fg-muted md:pl-9">{item.description}</p>

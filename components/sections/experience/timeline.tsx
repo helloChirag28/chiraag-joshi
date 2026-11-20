@@ -244,7 +244,7 @@ export function Timeline({ roles, lanes, markers, now, start }: TimelineProps) {
 function Row({ label, children, className }: { label: string; children: React.ReactNode; className?: string }) {
   return (
     <div className={cn("grid grid-cols-[7rem_1fr] gap-x-6 pt-8", className)}>
-      <MonoLabel className="pt-1 text-fg-faint">{label}</MonoLabel>
+      <MonoLabel className="pt-1">{label}</MonoLabel>
       <div className="relative min-h-[4.5rem]">{children}</div>
     </div>
   );

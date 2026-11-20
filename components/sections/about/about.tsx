@@ -22,7 +22,7 @@ export function About() {
                 className="aspect-[4/5] h-auto w-full object-cover object-[50%_20%]"
               />
             </div>
-            <MonoLabel as="p" className="mt-3 text-fg-faint">Fig. 05 — Portrait</MonoLabel>
+            <MonoLabel as="p" className="mt-3">Fig. 05 — Portrait</MonoLabel>
           </figure>
         </Reveal>
         <div className="col-span-4 md:col-span-7 md:col-start-6">
@@ -39,7 +39,7 @@ export function About() {
             <ol className="mt-4 border-t border-line">
               {copy.about.principles.map((item, i) => (
                 <li key={item} className="flex items-baseline gap-4 border-b border-line py-4">
-                  <MonoLabel className="text-fg-faint">{String(i + 1).padStart(2, "0")}</MonoLabel>
+                  <MonoLabel>{String(i + 1).padStart(2, "0")}</MonoLabel>
                   <span className="text-body text-fg">{item}</span>
                 </li>
               ))}

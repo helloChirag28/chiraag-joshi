@@ -66,6 +66,17 @@
   }
 }
 
+/* Hero entrance: transform only, so text is visible (and counted for LCP)
+   from the very first paint, before any JavaScript runs. */
+@keyframes rise {
+  from { transform: translateY(var(--rise-from, 18px)); }
+  to { transform: translateY(0); }
+}
+.animate-rise {
+  animation: rise var(--dur-slow) var(--ease-out) both;
+  animation-delay: var(--rise-delay, 0ms);
+}
+
 /* Lenis (smooth scroll) required styles */
 html.lenis,
 html.lenis body { height: auto; }

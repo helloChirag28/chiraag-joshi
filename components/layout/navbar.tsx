@@ -25,7 +25,7 @@ export function Navbar() {
           className="group flex items-baseline gap-3 rounded-sm font-geist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal"
         >
           <span className="text-[0.9375rem] font-semibold tracking-tight text-fg">{site.name}</span>
-          <span className="hidden font-mono text-mono-label uppercase text-fg-faint lg:inline">
+          <span className="hidden font-mono text-mono-label uppercase text-fg-muted lg:inline">
             {site.title}
           </span>
         </a>
@@ -76,7 +76,7 @@ export function Navbar() {
                   className="flex items-baseline justify-between py-4 font-geist text-h3 font-medium text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal"
                 >
                   {item.label}
-                  <span className="font-mono text-mono-label text-fg-faint">
+                  <span className="font-mono text-mono-label text-fg-muted">
                     {String(i + 2).padStart(2, "0")}
                   </span>
                 </a>
