@@ -7,7 +7,6 @@ import {
   useSpring,
   useTransform,
   AnimatePresence,
-  time,
 } from "framer-motion";
 import {
   ArrowUpRight,
@@ -15,7 +14,6 @@ import {
   ExternalLink,
   Package,
   BookOpen,
-  ShoppingCart,
   LucideIcon,
   ChevronLeft,
   ChevronRight,
@@ -29,19 +27,13 @@ import { Button } from "./ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Plane, useTexture } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import Image from "next/image";
-import { Inter } from "next/font/google";
-import { useTheme } from "next-themes";
-
-const inter = Inter({ subsets: ["latin"] });
 
 interface Project {
   title: string;
@@ -819,7 +811,6 @@ const ProjectsSection = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [projectsPerPage, setProjectsPerPage] = useState(1);
   const totalPages = Math.ceil(projects.length / projectsPerPage);
-  const { theme } = useTheme();
 
   useEffect(() => {
     const calculateProjectsPerPage = () => {
