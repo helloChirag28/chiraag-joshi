@@ -65,3 +65,29 @@ export function project([x, y, z]: Vec3, yaw = -0.6, pitch = 0.5): [number, numb
   const y1 = y * cp - z1 * sp;
   return [x1, -y1];
 }
+
+/** Base view used by both SVG versions (static and animated). */
+export const VIEW = { yaw: -0.6, pitch: 0.5, swayYaw: 0.35, swayPitch: 0.06, maxDrag: 0.9 } as const;
+
+/**
+ * One viewBox that contains the drawing at every angle the animated SVG can
+ * reach, so swapping static → animated (or rotating) never changes its scale.
+ */
+export function structureViewBox(pad = 0.35): [number, number, number, number] {
+  const pts = structurePoints();
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+  const yawSpan = VIEW.swayYaw + VIEW.maxDrag;
+  for (let s = 0; s <= 24; s++) {
+    const yaw = VIEW.yaw - yawSpan + (2 * yawSpan * s) / 24;
+    for (const pitch of [VIEW.pitch - VIEW.swayPitch, VIEW.pitch + VIEW.swayPitch]) {
+      for (const p of pts) {
+        const [x, y] = project(p, yaw, pitch);
+        if (x < minX) minX = x;
+        if (y < minY) minY = y;
+        if (x > maxX) maxX = x;
+        if (y > maxY) maxY = y;
+      }
+    }
+  }
+  return [minX - pad, minY - pad, maxX - minX + 2 * pad, maxY - minY + 2 * pad];
+}

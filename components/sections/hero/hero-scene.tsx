@@ -5,6 +5,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { SceneErrorBoundary, webglAvailable } from "@/components/three/canvas-shell";
 import { useReducedMotionSafe } from "@/lib/hooks/use-reduced-motion-safe";
 import { cn } from "@/lib/utils";
+import { StructureSvg } from "./structure-svg";
 
 const StructureField = dynamic(() => import("@/components/three/structure-field"), { ssr: false });
 
@@ -16,11 +17,16 @@ const StructureField = dynamic(() => import("@/components/three/structure-field"
 export function HeroScene({ fallback }: { fallback: ReactNode }) {
   const reduced = useReducedMotionSafe();
   const [use3d, setUse3d] = useState(false);
+  const [mode, setMode] = useState<"static" | "svg" | "3d">("static");
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
-    const decide = () => setUse3d(mq.matches && !reduced && webglAvailable());
+    const decide = () => {
+      const webgl = mq.matches && !reduced && webglAvailable();
+      setUse3d(webgl);
+      setMode(reduced ? "static" : webgl ? "3d" : "svg");
+    };
     decide();
     mq.addEventListener("change", decide);
     return () => mq.removeEventListener("change", decide);
@@ -34,7 +40,7 @@ export function HeroScene({ fallback }: { fallback: ReactNode }) {
           ready && use3d ? "opacity-0" : "opacity-100",
         )}
       >
-        {fallback}
+        {mode === "svg" ? <StructureSvg className="h-full w-full" /> : fallback}
       </div>
       {use3d ? (
         <SceneErrorBoundary fallback={null}>
