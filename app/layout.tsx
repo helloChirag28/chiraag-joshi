@@ -42,7 +42,6 @@ export const metadata: Metadata = {
     creator: "@chiraag414",
   },
   robots: { index: true, follow: true },
-  icons: { icon: "/favicon.ico" },
 };
 
 export const viewport: Viewport = {
