@@ -1,12 +1,22 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@/components/theme-provider';
+import { Inter, Instrument_Serif } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
+import { Providers } from '@/components/providers';
 import Navbar from '@/components/navbar';
 import { Toaster } from 'sonner';
 import { legacyCopy, site } from '@/content/site';
 
 const inter = Inter({ subsets: ['latin'] });
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['italic'],
+  display: 'swap',
+  variable: '--font-instrument-serif',
+});
+const fontVariables = `${GeistSans.variable} ${GeistMono.variable} ${instrumentSerif.variable}`;
 
 export const metadata: Metadata = {
   title: site.name,
@@ -19,20 +29,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={fontVariables} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <Providers>
           <Navbar />
           {children}
-        </ThemeProvider>
+        </Providers>
         <Toaster richColors position="top-center" />
       </body>
     </html>

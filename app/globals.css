@@ -67,6 +67,77 @@
   }
 }
 
+/* ------------------------------------------------------------------ */
+/* Portfolio 2.0 design tokens (docs/DESIGN_DIRECTION.md §3, §4, §7).  */
+/* Dark is primary. The shadcn variables above are retired in 2C.      */
+/* `--signal` is the design doc's `--accent` (renamed: shadcn owns it). */
+/* ------------------------------------------------------------------ */
+@layer base {
+  :root {
+    --bg: #f5f4f0;
+    --surface-1: #ffffff;
+    --surface-2: #eceae4;
+    --line: #e2e0da;
+    --line-strong: #c9c6be;
+    --fg: #121212;
+    --fg-muted: #5c5c57;
+    --fg-faint: #8a8a84;
+    --signal: #c2410c;
+    --signal-fg: #ffffff;
+    --data: #2f5bd3;
+    --success: #15803d;
+    --danger: #b91c1c;
+    --shadow-overlay: 0 24px 64px -16px rgb(0 0 0 / 0.18);
+
+    --dur-instant: 120ms;
+    --dur-fast: 220ms;
+    --dur-base: 450ms;
+    --dur-slow: 800ms;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+    --section-y: clamp(6rem, 12vw, 10rem);
+    --gutter: 1rem;
+  }
+  @media (min-width: 768px) {
+    :root { --gutter: 1.5rem; }
+  }
+  .dark {
+    --bg: #0a0a0b;
+    --surface-1: #111113;
+    --surface-2: #18181b;
+    --line: #26262a;
+    --line-strong: #3a3a40;
+    --fg: #ededea;
+    --fg-muted: #a3a39e;
+    --fg-faint: #75756f;
+    --signal: #ff5b1f;
+    --signal-fg: #0a0a0b;
+    --data: #8fb0ff;
+    --success: #4ade80;
+    --danger: #f87171;
+    --shadow-overlay: 0 24px 64px -16px rgb(0 0 0 / 0.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Lenis (smooth scroll) required styles */
+html.lenis,
+html.lenis body { height: auto; }
+.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
+.lenis [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+
 .perspective-1000 {
   perspective: 1000px;
 }
