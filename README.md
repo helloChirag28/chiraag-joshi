@@ -5,7 +5,7 @@ Canonical domain: https://chiraagjoshi.com · Current deployment: https://chiraa
 
 ## Stack
 
-- Next.js 16 (App Router, static export) · React 19 · TypeScript
+- Next.js 16 (App Router, statically prerendered) · React 19 · TypeScript
 - Tailwind CSS · shadcn/ui · Framer Motion
 - Three.js / React Three Fiber (hero scene)
 - EmailJS (contact form)
@@ -27,8 +27,8 @@ npm run dev                  # http://localhost:3000
 | Command | What it does |
 |---|---|
 | `npm run dev` | Development server |
-| `npm run build` | Production build (static export to `out/`) |
-| `npm run start` | Not used with static export; serve `out/` instead |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build locally |
 | `npm run lint` | ESLint 9 flat config (`eslint.config.mjs`, `eslint-config-next/core-web-vitals`) |
 
 ## Environment variables

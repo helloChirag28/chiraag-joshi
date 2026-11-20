@@ -336,6 +336,7 @@ const HeroSection = () => {
                 src="/images/Profile-Photo1.jpeg"
                 alt="Profile"
                 fill
+                sizes="128px"
                 className="object-cover object-center"
                 priority
               />

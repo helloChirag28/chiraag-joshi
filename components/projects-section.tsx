@@ -623,6 +623,7 @@ const ProjectCard = ({ project, index, onImageClick }: ProjectCardProps) => {
                   src={project.image}
                   alt={project.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   priority={index === 0}
                   className="object-cover transform transition-transform duration-300 group-hover:scale-110"
                 />
@@ -687,6 +688,7 @@ const ProjectCard = ({ project, index, onImageClick }: ProjectCardProps) => {
                       src={screenshot}
                       alt={`${project.title} screenshot ${index + 1}`}
                       fill
+                      sizes="(max-width: 640px) 90vw, (max-width: 768px) 45vw, 30vw"
                       className="rounded-lg shadow-md object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
