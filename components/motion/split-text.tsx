@@ -13,16 +13,16 @@ interface SplitTextProps {
 }
 
 /**
- * Word-by-word mask reveal. The full sentence stays in the DOM for screen
- * readers and search engines; the animated copy is aria-hidden.
+ * Word-by-word mask reveal. The words themselves are the real text (rendered
+ * once, visible in server HTML), so screen readers and search engines read
+ * the sentence normally.
  */
 export function SplitText({ text, className, delay = 0, onLoad }: SplitTextProps) {
   const { ref, controls } = useReveal<HTMLSpanElement>({ onLoad });
   const words = text.split(" ");
   return (
     <span ref={ref} className={className}>
-      <span className="sr-only">{text}</span>
-      <motion.span aria-hidden initial={false} animate={controls} className="inline">
+      <motion.span initial={false} animate={controls} className="inline">
         {words.map((word, i) => (
           <span key={`${word}-${i}`} className="inline-block overflow-hidden pb-[0.08em] align-top">
             <motion.span

@@ -1,7 +1,6 @@
-import { Code2, Database, Globe, Layers } from "lucide-react";
-import type { ExpertiseArea, LegacySkillGroup } from "@/types/content";
+import type { ExpertiseArea } from "@/types/content";
 
-/** Final expertise areas (docs/CONTENT.md §5). Rendered from A5 / 2C on. */
+/** Expertise areas (docs/CONTENT.md §5). */
 export const expertise: ExpertiseArea[] = [
   {
     area: "Frontend engineering",
@@ -43,29 +42,5 @@ export const expertise: ExpertiseArea[] = [
     area: "Tooling & delivery",
     description: "Version control, containers, deployment",
     tools: ["Git", "Docker", "Vercel"],
-  },
-];
-
-/** The v1 skills list, moved here unchanged (A4). A5 switches the UI to `expertise`. */
-export const legacySkills: LegacySkillGroup[] = [
-  {
-    category: "Frontend Development",
-    icon: Globe,
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Three.js", "Framer Motion", "Angular"],
-  },
-  {
-    category: "Backend Development",
-    icon: Database,
-    skills: ["Node.js", "Express", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL", "C#"],
-  },
-  {
-    category: "Programming Languages",
-    icon: Code2,
-    skills: ["JavaScript", "TypeScript", ".NET", "SQL", "HTML", "CSS", "C++"],
-  },
-  {
-    category: "Tools & Technologies",
-    icon: Layers,
-    skills: ["Git", "Docker", "AWS", "Firebase", "Vercel", "Figma"],
   },
 ];

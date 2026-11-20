@@ -5,12 +5,26 @@ Canonical domain: https://chiraagjoshi.com · Current deployment: https://chiraa
 
 ## Stack
 
-- Next.js 16 (App Router, statically prerendered) · React 19 · TypeScript
-- Tailwind CSS · shadcn/ui · Framer Motion
-- Three.js / React Three Fiber (hero scene)
+- Next.js 16 (App Router, statically prerendered, revalidated daily) · React 19 · TypeScript
+- Tailwind CSS with design tokens (`app/globals.css`) · Geist Sans/Mono + Instrument Serif
+- Framer Motion + Lenis (smooth scroll), both off for `prefers-reduced-motion`
+- Three.js / React Three Fiber: one lazy-loaded hero scene (desktop only, SVG fallback elsewhere)
 - EmailJS (contact form)
 
-Portfolio 2.0 is being built in phases. Planning documents are kept locally in `docs/` (git-ignored, not part of the repository).
+Planning documents are kept locally in `docs/` (git-ignored, not part of the repository).
+
+## Structure
+
+| Path | Contents |
+|---|---|
+| `content/` | All copy and data: site config, experience, projects, expertise |
+| `types/content.ts` | Content types |
+| `components/sections/` | Page sections (hero, experience, work, expertise, about, contact) |
+| `components/primitives/` | Design-system building blocks |
+| `components/motion/` | Reveal, split text, draw line, magnetic, smooth scroll |
+| `components/illustrations/` | Inline SVG project drawings |
+| `components/three/` | The single WebGL scene |
+| `app/styleguide` | Design-system preview, available in `npm run dev` only |
 
 ## Getting started
 

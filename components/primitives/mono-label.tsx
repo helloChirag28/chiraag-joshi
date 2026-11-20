@@ -9,7 +9,7 @@ export function MonoLabel({
 }: {
   children: ReactNode;
   className?: string;
-  as?: "span" | "p" | "div" | "dt" | "dd";
+  as?: "span" | "p" | "div" | "dt" | "dd" | "h3";
 }) {
   return <Comp className={cn("font-mono text-mono-label uppercase text-fg-muted", className)}>{children}</Comp>;
 }

@@ -1,5 +1,8 @@
 import type { Config } from 'tailwindcss';
 
+// Hex tokens with Tailwind opacity modifiers (e.g. bg-bg/80) via color-mix.
+const c = (v: string) => `color-mix(in srgb, var(${v}) calc(<alpha-value> * 100%), transparent)`;
+
 const config: Config = {
   darkMode: ['class'],
   content: [
@@ -9,11 +12,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
       fontFamily: {
         geist: ['var(--font-geist-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['var(--font-geist-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
@@ -51,92 +49,24 @@ const config: Config = {
         out: 'cubic-bezier(0.16, 1, 0.3, 1)',
         'in-out': 'cubic-bezier(0.65, 0, 0.35, 1)',
       },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
-      },
       colors: {
         // Portfolio 2.0 tokens
-        bg: 'var(--bg)',
-        'surface-1': 'var(--surface-1)',
-        'surface-2': 'var(--surface-2)',
-        line: { DEFAULT: 'var(--line)', strong: 'var(--line-strong)' },
+        bg: c('--bg'),
+        'surface-1': c('--surface-1'),
+        'surface-2': c('--surface-2'),
+        line: { DEFAULT: c('--line'), strong: c('--line-strong') },
         fg: {
-          DEFAULT: 'var(--fg)',
-          muted: 'var(--fg-muted)',
-          faint: 'var(--fg-faint)',
+          DEFAULT: c('--fg'),
+          muted: c('--fg-muted'),
+          faint: c('--fg-faint'),
         },
-        signal: { DEFAULT: 'var(--signal)', fg: 'var(--signal-fg)' },
-        data: 'var(--data)',
-        success: 'var(--success)',
-        danger: 'var(--danger)',
-        // shadcn (v1 site, retired in 2C)
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
-        },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
-        },
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
-        },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
-        },
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        chart: {
-          '1': 'hsl(var(--chart-1))',
-          '2': 'hsl(var(--chart-2))',
-          '3': 'hsl(var(--chart-3))',
-          '4': 'hsl(var(--chart-4))',
-          '5': 'hsl(var(--chart-5))',
-        },
-      },
-      keyframes: {
-        'accordion-down': {
-          from: {
-            height: '0',
-          },
-          to: {
-            height: 'var(--radix-accordion-content-height)',
-          },
-        },
-        'accordion-up': {
-          from: {
-            height: 'var(--radix-accordion-content-height)',
-          },
-          to: {
-            height: '0',
-          },
-        },
-      },
-      animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
+        signal: { DEFAULT: c('--signal'), fg: c('--signal-fg') },
+        data: c('--data'),
+        success: c('--success'),
+        danger: c('--danger'),
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [],
 };
 export default config;

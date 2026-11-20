@@ -1,5 +1,3 @@
-import type { LucideIcon } from "lucide-react";
-
 /** Calendar month as `YYYY-MM`. */
 export type Month = `${number}-${
   | "01" | "02" | "03" | "04" | "05" | "06"
@@ -60,13 +58,16 @@ export interface Project {
   slug: string;
   title: string;
   tier: "selected" | "lab";
-  kind: "professional" | "personal" | "client";
+  /** Only set where confirmed. */
+  kind?: "professional" | "personal" | "client";
   /** true → no links are rendered, only the illustration. */
   confidential?: boolean;
   summary: string;
   problem?: string;
+  /** What the project does / shows. */
   built: string[];
-  role: string;
+  /** My actual responsibility. Only set where confirmed. */
+  role?: string;
   stack: string[];
   status: ProjectStatus;
   statusNote?: string;
@@ -75,36 +76,12 @@ export interface Project {
   illustrationLabel: string;
   statusLabel?: string;
   context?: string;
+  /** Short caption in the illustration corner, e.g. "FIG. 01 — SCHEDULE". */
+  figure: string;
 }
 
 export interface ExpertiseArea {
   area: string;
   description: string;
   tools: string[];
-}
-
-/* ------------------------------------------------------------------ */
-/* Legacy shapes: the v1 site's data, rendered unchanged until A5.     */
-/* ------------------------------------------------------------------ */
-
-export interface LegacyProject {
-  title: string;
-  description: string;
-  longDescription: string;
-  summaryOfProject: {
-    features: (string | { title: string; children: string[] })[];
-    status: string;
-  };
-  image: string;
-  screenshots: string[];
-  tags: string[];
-  demoUrl: string;
-  githubUrl: string;
-  icon: LucideIcon;
-}
-
-export interface LegacySkillGroup {
-  category: string;
-  icon: LucideIcon;
-  skills: string[];
 }
