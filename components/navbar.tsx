@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 import { Moon, Sun, Menu, X } from 'lucide-react';
+import { legacyNav } from '@/content/site';
 
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
@@ -16,12 +17,7 @@ const Navbar = () => {
     setMounted(true);
   }, []);
 
-  const navItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Contact', href: '#contact' },
-  ];
+  const navItems = legacyNav;
 
   return (
     <nav className="fixed w-full z-50 bg-background/80 backdrop-blur-sm border-b">

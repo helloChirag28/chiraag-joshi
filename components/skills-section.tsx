@@ -1,26 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Code2, Database, Globe, Layers } from 'lucide-react';
-
-const skills = {
-  'Frontend Development': {
-    icon: Globe,
-    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Three.js', 'Framer Motion','Angular'],
-  },
-  'Backend Development': {
-    icon: Database,
-    skills: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'REST APIs', 'GraphQL','C#',],
-  },
-  'Programming Languages': {
-    icon: Code2,
-    skills: ['JavaScript', 'TypeScript', '.NET', 'SQL', 'HTML', 'CSS','C++'],
-  },
-  'Tools & Technologies': {
-    icon: Layers,
-    skills: ['Git', 'Docker', 'AWS', 'Firebase', 'Vercel', 'Figma'],
-  },
-};
+import { legacySkills } from '@/content/expertise';
 
 const SkillsSection = () => {
   return (
@@ -34,7 +15,7 @@ const SkillsSection = () => {
         >
           <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center md:text-left">Skills & Expertise</h2>
           <div className="grid sm:grid-cols-2 gap-4 md:gap-8">
-            {Object.entries(skills).map(([category, { icon: Icon, skills }], index) => (
+            {legacySkills.map(({ category, icon: Icon, skills }, index) => (
               <motion.div
                 key={category}
                 initial={{ opacity: 0, y: 20 }}

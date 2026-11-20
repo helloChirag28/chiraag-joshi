@@ -8,6 +8,7 @@ import { ArrowRight, Github, Linkedin, Twitter } from 'lucide-react';
 import Image from 'next/image';
 import { useRef, useMemo, useState, useEffect } from 'react';
 import * as THREE from 'three';
+import { legacyCopy, site, socialHref } from '@/content/site';
 
 // Mobile-optimized Particles System
 const Particles = ({ mouse, isMobile }: { mouse: THREE.Vector2; isMobile: boolean }) => {
@@ -343,15 +344,15 @@ const HeroSection = () => {
             </div>
             <div className="text-center sm:text-left">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                Chirag Joshi
+                {site.name}
               </h1>
               <p className="text-lg sm:text-xl text-muted-foreground font-medium">
-                Full Stack Engineer & Freelancer
+                {legacyCopy.heroSubtitle}
               </p>
             </div>
           </div>
           <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8 text-center sm:text-left max-w-xl">
-            I&#39;m currently focused on expanding my experience designing and developing high performing websites with cutting-edge 3D technology.
+            {legacyCopy.heroIntro}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center sm:justify-start">
             <Button 
@@ -382,7 +383,7 @@ const HeroSection = () => {
               variant="ghost" 
               size="icon" 
               className="h-10 w-10"
-              onClick={() => window.open('https://github.com/helloChirag28', '_blank')}
+              onClick={() => window.open(socialHref('GitHub'), '_blank')}
             >
               <Github className="h-5 w-5" />
             </Button>
@@ -390,7 +391,7 @@ const HeroSection = () => {
               variant="ghost" 
               size="icon" 
               className="h-10 w-10"
-              onClick={() => window.open('https://in.linkedin.com/in/chirag-joshi-b76153173', '_blank')}
+              onClick={() => window.open(socialHref('LinkedIn'), '_blank')}
             >
               <Linkedin className="h-5 w-5" />
             </Button>
@@ -398,7 +399,7 @@ const HeroSection = () => {
               variant="ghost" 
               size="icon" 
               className="h-10 w-10"
-              onClick={() => window.open('https://x.com/chiraag414?s=21', '_blank')}
+              onClick={() => window.open(socialHref('X'), '_blank')}
             >
               <Twitter className="h-5 w-5" />
             </Button>

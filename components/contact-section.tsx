@@ -8,6 +8,7 @@ import { Textarea } from './ui/textarea';
 import { Mail, MessageSquare, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { toast } from 'sonner';
+import { legacyCopy, site } from '@/content/site';
 
 // Initialize EmailJS
 emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '');
@@ -42,7 +43,7 @@ const ContactSection = () => {
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
         {
-          to_email: 'hello.chirag28@gmail.com',
+          to_email: site.email,
           from_name: formData.name,
           from_email: formData.email,
           reply_to: formData.email,
@@ -78,9 +79,9 @@ const ContactSection = () => {
           className="max-w-2xl mx-auto"
         >
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">Get in Touch</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">{legacyCopy.contactTitle}</h2>
             <p className="text-sm md:text-base text-muted-foreground">
-              Have a project in mind? Let&apos;s work together to bring your ideas to life.
+              {legacyCopy.contactIntro}
             </p>
           </div>
 
@@ -90,15 +91,15 @@ const ContactSection = () => {
                 <Mail className="h-5 w-5 md:h-6 md:w-6 text-primary" />
                 <div>
                   <h3 className="text-sm md:text-base font-semibold">Email</h3>
-                  <p className="text-sm md:text-base text-muted-foreground">hello.chirag28@gmail.com</p>
+                  <p className="text-sm md:text-base text-muted-foreground">{site.email}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 md:gap-4">
                 <MessageSquare className="h-5 w-5 md:h-6 md:w-6 text-primary" />
                 <div>
-                  <h3 className="text-sm md:text-base font-semibold">Let&apos;s Talk</h3>
+                  <h3 className="text-sm md:text-base font-semibold">{legacyCopy.contactTalkTitle}</h3>
                   <p className="text-sm md:text-base text-muted-foreground">
-                    I&apos;m always open for new opportunities and interesting projects.
+                    {legacyCopy.contactTalkBody}
                   </p>
                 </div>
               </div>

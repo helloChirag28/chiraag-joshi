@@ -4,12 +4,13 @@ import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import Navbar from '@/components/navbar';
 import { Toaster } from 'sonner';
+import { legacyCopy, site } from '@/content/site';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Chirag Joshi',
-  description: 'Portfolio website of Chirag Joshi, a software developer and freelancer specializing in web development and 3D animations.',
+  title: site.name,
+  description: legacyCopy.metaDescription,
 };
 
 export default function RootLayout({
